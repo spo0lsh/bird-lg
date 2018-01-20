@@ -151,7 +151,7 @@ def bird_proxy(host, proto, service, query):
             resultat = f.read()
             status = True                # retreive remote status
         except IOError:
-            resultat = "Failed retreive url: %s" % url
+            resultat = "Failed retreive url: %s" % host
             status = False
         return status, resultat
 
@@ -652,4 +652,5 @@ def show_route(request_type, hosts, proto):
 
 
 if __name__ == "__main__":
-    app.run(app.config.get("BIND_IP", "0.0.0.0"), app.config.get("BIND_PORT", 5000))
+    context = (app.config.get("CERTFILE", "fullchain.pem"), app.config.get("KEYFILE", "privkey.pem"))
+    app.run(app.config.get("BIND_IP", "0.0.0.0"), app.config.get("BIND_PORT", 5000), ssl_context=context)
