@@ -184,7 +184,7 @@ def inject_all_host():
 
 @app.route("/")
 def hello():
-    return redirect("/summary/%s/ipv4" % "+".join(app.config["PROXY"].keys()))
+    return redirect("/home")
 
 
 def error_page(text):
@@ -203,6 +203,10 @@ def page_not_found(e):
 def get_query():
     q = unquote(request.args.get('q', '').strip())
     return q
+
+@app.route("/home")
+def home():
+    return render_template('home.html')
 
 @app.route("/whois")
 def whois():
