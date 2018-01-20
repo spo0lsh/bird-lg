@@ -47,7 +47,9 @@ Each services can be embedded in any webserver by following regular python-flask
 
 Source code is under GPL 3.0, powered by Flask, jQuery and Bootstrap.
 
+Forked by Krzysztof Krych <github@ipv6.edu.pl>
 Copyright © 2012 Mehdi Abaakouk <sileht@sileht.net>
+
 
 Happy users
 -----------
