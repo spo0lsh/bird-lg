@@ -206,6 +206,10 @@ def get_query():
 
 @app.route("/home")
 def home():
+    session.permanent = True
+    history = session.get("history", [])
+    session["history"] = history[:20]
+
     return render_template('home.html')
 
 @app.route("/whois")
